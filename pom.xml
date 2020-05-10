@@ -21,6 +21,7 @@
         <module>trade-shoes-common</module>
         <module>trade-shoes-gateway</module>
         <module>trade-shoes-user</module>
+        <module>trade-shoes-capital</module>
     </modules>
 
     <properties>
