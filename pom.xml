@@ -22,6 +22,9 @@
         <module>trade-shoes-gateway</module>
         <module>trade-shoes-user</module>
         <module>trade-shoes-capital</module>
+        <module>trade-shoes-integral</module>
+        <module>trade-shoes-order</module>
+        <module>trade-shoes-poundage</module>
     </modules>
 
     <properties>
