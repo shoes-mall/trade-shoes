@@ -20,6 +20,7 @@
     <modules>
         <module>trade-shoes-common</module>
         <module>trade-shoes-gateway</module>
+        <module>trade-shoes-user</module>
     </modules>
 
     <properties>
