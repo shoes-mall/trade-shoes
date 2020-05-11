@@ -28,7 +28,9 @@
     </modules>
 
     <properties>
-
+        <fastjson.version>1.2.61</fastjson.version>
+        <commons-text.version>1.6</commons-text.version>
+        <spring-cloud.version>Greenwich.SR5</spring-cloud.version>
     </properties>
 
     <dependencies>
