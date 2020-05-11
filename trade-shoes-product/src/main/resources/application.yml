@@ -1,17 +1,18 @@
+
 # 端口
 server:
-  port: 8004
+  port: 8007
 
 # spring
 spring:
   application:
-    name: trade-shoes-order
+    name: trade-shoes-product
   cloud:
     nacos:
       discovery:
         server-addr: 47.98.118.202:8848
   datasource:
-    url: jdbc:mysql://47.114.153.175:3306/order?useSSL=false&allowMultiQueries=true
+    url: jdbc:mysql://47.114.153.175:3306/product?useSSL=false&allowMultiQueries=true
     username: root
     password: wx123456
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -21,4 +22,3 @@ management:
     web:
       exposure:
         include: '*'
-
