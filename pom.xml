@@ -10,7 +10,7 @@
     <name>parent-springboot</name>
     <description>shoes springboot parent</description>
 
-<!--  注释  -->
+    <!--  注释  -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -26,6 +26,7 @@
         <module>trade-shoes-integral</module>
         <module>trade-shoes-order</module>
         <module>trade-shoes-poundage</module>
+        <module>trade-shoes-product</module>
     </modules>
 
     <properties>
