@@ -12,7 +12,7 @@ spring:
       discovery:
         server-addr: 47.98.118.202:8848
   datasource:
-    url: jdbc:mysql://47.114.153.175:3306/order?useSSL=false&allowMultiQueries=true
+    url: jdbc:mysql://47.114.153.175:3306/product?useSSL=false&allowMultiQueries=true
     username: root
     password: wx123456
     driver-class-name: com.mysql.cj.jdbc.Driver
