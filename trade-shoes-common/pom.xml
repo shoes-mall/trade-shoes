@@ -22,61 +22,13 @@
         </dependency>
     </dependencies>
 
-    <distributionManagement>
-        <repository>
-            <id>nexus-releases</id>
-            <name>Nexus Release Repository</name>
-            <url>http://192.168.2.211:6161/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <name>snapshots</name>
-            <url>http://192.168.2.211:6161/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-    <repositories>
-        <repository>
-            <id>Snapshots</id>
-            <name>snapshots Repository</name>
-            <url>http://192.168.2.211:6161/nexus/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>Releases</id>
-            <name>snapshots Repository</name>
-            <url>http://192.168.2.211:6161/nexus/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
-            </releases>
-
-        </repository>
-
-        <repository>
-            <id>alibaba</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
-
-        <repository>
-            <id>public</id>
-            <name>Central</name>
-            <url>http://192.168.2.211:6161/nexus/content/groups/public/</url>
-            <releases>
-                <enabled> true</enabled>
-            </releases>
-            <snapshots>
-                <enabled> true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
