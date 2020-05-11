@@ -6,7 +6,7 @@ server:
 # spring
 spring:
   application:
-    name: trade-shoes-order
+    name: trade-shoes-product
   cloud:
     nacos:
       discovery:
