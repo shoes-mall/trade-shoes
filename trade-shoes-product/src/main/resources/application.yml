@@ -16,6 +16,62 @@ spring:
     username: root
     password: wx123456
     driver-class-name: com.mysql.cj.jdbc.Driver
+  # 数据库版本控制
+  flyway:
+    # 启用或禁用 flyway
+    enabled: true
+    # 字符编码
+    encoding: utf-8
+    # 对执行迁移时基准版本的描述
+    baseline-description: test
+    # 若连接的数据库非空库，是否初始化
+    # 当迁移时发现目标schema非空，而且带有没有元数据的表时，是否自动执行基准迁移，默认false.
+    baseline-on-migrate: true
+    # 指定 baseline 的版本号,缺省值为 1, 低于该版本号的 SQL 文件, migrate 的时候被忽略
+    # 开始执行基准迁移时对现有的schema的版本打标签，默认值为1.
+    baseline-version: 0
+    # 是否开启校验
+    # 迁移时是否校验，默认为 true
+    validate-on-migrate: true
+    # 默认脚本加载路径：/db/migration
+    # locations: ["classpath:/db/migration"]
+    # flyway 的 clean 命令会删除指定 schema 下的所有 table，默认 false
+    clean-disabled: false
+    # 发环境最好开启 outOfOrder, 生产环境关闭 outOfOrder
+    # 是否允许无序的迁移，默认 false
+    out-of-order: false
+    # 检查迁移脚本的位置是否存在，默认false
+    check-location: false
+    # 当读取元数据表时是否忽略错误的迁移，默认false
+    ignore-future-migrations: false
+    # 当初始化好连接时要执行的SQL
+    init-sqls: show tables;
+    # 迁移时使用的JDBC URL，如果没有指定的话，将使用配置的主数据源
+    #url:
+    # 迁移数据库的用户名
+    #user:
+    # 目标数据库的密码
+    #password:
+    # 设置每个placeholder的前缀，默认${
+    #placeholder-prefix:
+    # 是否要被替换，默认true
+    #placeholder-replacement:
+    # 设置每个placeholder的后缀，默认}
+    #placeholder-suffix:
+    # 设置placeholder的value
+    #placeholders.[placeholder name]
+    # 设定需要flywary迁移的schema，大小写敏感，默认为连接默认的schema
+    #schemas: flyway
+    # 迁移文件的前缀，默认为V
+    #sql-migration-prefix:
+    # 迁移脚本的文件名分隔符，默认__
+    #sql-migration-separator:
+    # 迁移脚本的后缀，默认为.sql
+    #sql-migration-suffix:
+    # 使用的元数据表名，默认为schema_version
+    #table: flyway_schema_history
+    # 迁移时使用的目标版本，默认为latest version
+    #target:
 
 management:
   endpoints:
