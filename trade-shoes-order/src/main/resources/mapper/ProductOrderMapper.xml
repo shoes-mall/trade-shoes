@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shoes.order.mapper.IProductOrderMapper">
+
+
+    <select id="queryProductOrder" resultType="com.shoes.order.po.ProductOrderPO">
+
+        select * from product_order
+
+        <where>
+            <if test="orderNum != null and orderNum != ''">
+                and order_num = #{orderNum}
+            </if>
+
+            <if test="userId != null and userId != ''">
+                and user_id = #{userId}
+            </if>
+
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+</mapper>

@@ -17,6 +17,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <commons.version>1.0.0.SNAPSHOT</commons.version>
+        <tkmapper.version>4.1.5</tkmapper.version>
     </properties>
 
     <dependencies>
@@ -52,6 +54,37 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
+        <!-- 公共包 -->
+        <dependency>
+            <groupId>com.shoes</groupId>
+            <artifactId>trade-shoes-commons</artifactId>
+            <version>${commons.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.shoes</groupId>
+            <artifactId>trade-shoes-commons</artifactId>
+            <version>1.0.0.SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!--Swagger-UI API文档生产工具-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>tk.mybatis</groupId>
+            <artifactId>mapper</artifactId>
+            <version>${tkmapper.version}</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>

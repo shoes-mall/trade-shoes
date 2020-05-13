@@ -16,6 +16,11 @@ spring:
     password: wx123456
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: /mapper/**.xml
+
 management:
   endpoints:
     web:
