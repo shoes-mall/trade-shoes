@@ -46,10 +46,11 @@ public class Sender {
      */
     public String baseSend(String exchange, String routingKey, Object payload, String uniqueMessageId, Long messageExpirationTime) {
         // 生成消息ID
-        String finalUniqueMessageId = uniqueMessageId;
         if (StringUtils.isBlank(uniqueMessageId)) {
             uniqueMessageId = UUID.randomUUID().toString();
         }
+
+        String finalUniqueMessageId = uniqueMessageId;
         logger.info("SEND --- unique message id：{}", uniqueMessageId);
 
         // 消息属性

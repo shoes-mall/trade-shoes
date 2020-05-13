@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shoes.product.mapper.GoodsMapper">
+
+    <resultMap id="BaseResultMap" type="com.shoes.product.model.Goods">
+      <id column="id" jdbcType="INTEGER" property="id" />
+      <result column="cat_id" jdbcType="INTEGER" property="catId" />
+      <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+      <result column="ord_goods" jdbcType="VARCHAR" property="ordGoods" />
+      <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+      <result column="goods_img" jdbcType="VARCHAR" property="goodsImg" />
+      <result column="goods_type" jdbcType="INTEGER" property="goodsType" />
+      <result column="goods_desc" jdbcType="VARCHAR" property="goodsDesc" />
+      <result column="is_sale" jdbcType="INTEGER" property="isSale" />
+      <result column="is_new" jdbcType="INTEGER" property="isNew" />
+      <result column="sale_time" jdbcType="TIMESTAMP" property="saleTime" />
+      <result column="into_user" jdbcType="VARCHAR" property="intoUser" />
+      <result column="into_time" jdbcType="TIMESTAMP" property="intoTime" />
+      <result column="upd_user" jdbcType="VARCHAR" property="updUser" />
+      <result column="upd_time" jdbcType="TIMESTAMP" property="updTime" />
+      <result column="status" jdbcType="INTEGER" property="status" />
+      <result column="version" jdbcType="INTEGER" property="version" />
+      <result column="remark" jdbcType="VARCHAR" property="remark" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+      id, cat_id, shop_id, ord_goods, goods_name, goods_img, goods_type, goods_desc, is_sale,
+      is_new, sale_time, into_user, into_time, upd_user, upd_time, `status`, version, remark
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List" />
+      from s_goods
+      where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+      delete from s_goods
+      where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.shoes.product.model.Goods" useGeneratedKeys="true">
+      insert into s_goods (cat_id, shop_id, ord_goods,
+        goods_name, goods_img, goods_type,
+        goods_desc, is_sale, is_new,
+        sale_time, into_user, into_time,
+        upd_user, upd_time, `status`,
+        version, remark)
+      values (#{catId,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, #{ordGoods,jdbcType=VARCHAR},
+        #{goodsName,jdbcType=VARCHAR}, #{goodsImg,jdbcType=VARCHAR}, #{goodsType,jdbcType=INTEGER},
+        #{goodsDesc,jdbcType=VARCHAR}, #{isSale,jdbcType=INTEGER}, #{isNew,jdbcType=INTEGER},
+        #{saleTime,jdbcType=TIMESTAMP}, #{intoUser,jdbcType=VARCHAR}, #{intoTime,jdbcType=TIMESTAMP},
+        #{updUser,jdbcType=VARCHAR}, #{updTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER},
+        #{version,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.shoes.product.model.Goods" useGeneratedKeys="true">
+      insert into s_goods
+      <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="catId != null">
+          cat_id,
+        </if>
+        <if test="shopId != null">
+          shop_id,
+        </if>
+        <if test="ordGoods != null">
+          ord_goods,
+        </if>
+        <if test="goodsName != null">
+          goods_name,
+        </if>
+        <if test="goodsImg != null">
+          goods_img,
+        </if>
+        <if test="goodsType != null">
+          goods_type,
+        </if>
+        <if test="goodsDesc != null">
+          goods_desc,
+        </if>
+        <if test="isSale != null">
+          is_sale,
+        </if>
+        <if test="isNew != null">
+          is_new,
+        </if>
+        <if test="saleTime != null">
+          sale_time,
+        </if>
+        <if test="intoUser != null">
+          into_user,
+        </if>
+        <if test="intoTime != null">
+          into_time,
+        </if>
+        <if test="updUser != null">
+          upd_user,
+        </if>
+        <if test="updTime != null">
+          upd_time,
+        </if>
+        <if test="status != null">
+          `status`,
+        </if>
+        <if test="version != null">
+          version,
+        </if>
+        <if test="remark != null">
+          remark,
+        </if>
+      </trim>
+      <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="catId != null">
+          #{catId,jdbcType=INTEGER},
+        </if>
+        <if test="shopId != null">
+          #{shopId,jdbcType=INTEGER},
+        </if>
+        <if test="ordGoods != null">
+          #{ordGoods,jdbcType=VARCHAR},
+        </if>
+        <if test="goodsName != null">
+          #{goodsName,jdbcType=VARCHAR},
+        </if>
+        <if test="goodsImg != null">
+          #{goodsImg,jdbcType=VARCHAR},
+        </if>
+        <if test="goodsType != null">
+          #{goodsType,jdbcType=INTEGER},
+        </if>
+        <if test="goodsDesc != null">
+          #{goodsDesc,jdbcType=VARCHAR},
+        </if>
+        <if test="isSale != null">
+          #{isSale,jdbcType=INTEGER},
+        </if>
+        <if test="isNew != null">
+          #{isNew,jdbcType=INTEGER},
+        </if>
+        <if test="saleTime != null">
+          #{saleTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="intoUser != null">
+          #{intoUser,jdbcType=VARCHAR},
+        </if>
+        <if test="intoTime != null">
+          #{intoTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="updUser != null">
+          #{updUser,jdbcType=VARCHAR},
+        </if>
+        <if test="updTime != null">
+          #{updTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="status != null">
+          #{status,jdbcType=INTEGER},
+        </if>
+        <if test="version != null">
+          #{version,jdbcType=INTEGER},
+        </if>
+        <if test="remark != null">
+          #{remark,jdbcType=VARCHAR},
+        </if>
+      </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.shoes.product.model.Goods">
+      update s_goods
+      <set>
+        <if test="catId != null">
+          cat_id = #{catId,jdbcType=INTEGER},
+        </if>
+        <if test="shopId != null">
+          shop_id = #{shopId,jdbcType=INTEGER},
+        </if>
+        <if test="ordGoods != null">
+          ord_goods = #{ordGoods,jdbcType=VARCHAR},
+        </if>
+        <if test="goodsName != null">
+          goods_name = #{goodsName,jdbcType=VARCHAR},
+        </if>
+        <if test="goodsImg != null">
+          goods_img = #{goodsImg,jdbcType=VARCHAR},
+        </if>
+        <if test="goodsType != null">
+          goods_type = #{goodsType,jdbcType=INTEGER},
+        </if>
+        <if test="goodsDesc != null">
+          goods_desc = #{goodsDesc,jdbcType=VARCHAR},
+        </if>
+        <if test="isSale != null">
+          is_sale = #{isSale,jdbcType=INTEGER},
+        </if>
+        <if test="isNew != null">
+          is_new = #{isNew,jdbcType=INTEGER},
+        </if>
+        <if test="saleTime != null">
+          sale_time = #{saleTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="intoUser != null">
+          into_user = #{intoUser,jdbcType=VARCHAR},
+        </if>
+        <if test="intoTime != null">
+          into_time = #{intoTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="updUser != null">
+          upd_user = #{updUser,jdbcType=VARCHAR},
+        </if>
+        <if test="updTime != null">
+          upd_time = #{updTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="status != null">
+          `status` = #{status,jdbcType=INTEGER},
+        </if>
+        <if test="version != null">
+          version = #{version,jdbcType=INTEGER},
+        </if>
+        <if test="remark != null">
+          remark = #{remark,jdbcType=VARCHAR},
+        </if>
+      </set>
+      where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.shoes.product.model.Goods">
+      update s_goods
+      set cat_id = #{catId,jdbcType=INTEGER},
+        shop_id = #{shopId,jdbcType=INTEGER},
+        ord_goods = #{ordGoods,jdbcType=VARCHAR},
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+        goods_img = #{goodsImg,jdbcType=VARCHAR},
+        goods_type = #{goodsType,jdbcType=INTEGER},
+        goods_desc = #{goodsDesc,jdbcType=VARCHAR},
+        is_sale = #{isSale,jdbcType=INTEGER},
+        is_new = #{isNew,jdbcType=INTEGER},
+        sale_time = #{saleTime,jdbcType=TIMESTAMP},
+        into_user = #{intoUser,jdbcType=VARCHAR},
+        into_time = #{intoTime,jdbcType=TIMESTAMP},
+        upd_user = #{updUser,jdbcType=VARCHAR},
+        upd_time = #{updTime,jdbcType=TIMESTAMP},
+        `status` = #{status,jdbcType=INTEGER},
+        version = #{version,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=VARCHAR}
+      where id = #{id,jdbcType=INTEGER}
+    </update>
+
+</mapper>

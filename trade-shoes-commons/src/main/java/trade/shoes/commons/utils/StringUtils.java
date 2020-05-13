@@ -618,5 +618,9 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         return t;
     }
 
+    public static boolean isNullOrEmpty(String str) {
+        return str == null || str.trim().length() == 0 || "null".equals(str) || "NULL".equals(str) || "undefined".equals(str) || "UNDEFINED".equals(str);
+    }
+
 }
 
