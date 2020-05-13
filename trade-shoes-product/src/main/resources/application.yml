@@ -85,6 +85,21 @@ spring:
     # 迁移时使用的目标版本，默认为latest version
     #target:
 
+# 分页
+pagehelper:
+  autoDialect: true
+  closeConn: false
+  reasonable: true
+
+# 配置xml 的扫描路径
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  check-config-location: true
+  type-aliases-package: com.shoes.product.model
+  configuration:
+    cacheEnabled: true
+    mapUnderscoreToCamelCase: true
+
 management:
   endpoints:
     web:

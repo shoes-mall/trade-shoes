@@ -21,6 +21,7 @@
         <rabbit.version>2.0.1.RELEASE</rabbit.version>
         <flyway.version>5.2.4</flyway.version>
         <commons.version>1.0.0.SNAPSHOT</commons.version>
+        <pagehelper.version>1.2.7</pagehelper.version>
     </properties>
 
     <dependencies>
@@ -71,10 +72,11 @@
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.amqp</groupId>-->
-<!--            <artifactId>spring-rabbit</artifactId>-->
-<!--        </dependency>-->
+        <!-- feign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
 
         <!-- lombok -->
         <dependency>
@@ -83,10 +85,30 @@
             <version>${lombok.version}</version>
         </dependency>
 
+        <!-- 公共包 -->
         <dependency>
             <groupId>com.shoes</groupId>
             <artifactId>trade-shoes-commons</artifactId>
             <version>${commons.version}</version>
+        </dependency>
+
+        <!-- 分页插件 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>${pagehelper.version}</version>
+        </dependency>
+
+        <!--Swagger-UI API文档生产工具-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.7.0</version>
         </dependency>
 
     </dependencies>

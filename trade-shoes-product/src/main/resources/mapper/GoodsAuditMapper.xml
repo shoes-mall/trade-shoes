@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shoes.product.mapper.GoodsAuditMapper">
+
+    <resultMap id="BaseResultMap" type="com.shoes.product.model.GoodsAudit">
+      <id column="id" jdbcType="INTEGER" property="id" />
+      <result column="cat_id" jdbcType="INTEGER" property="catId" />
+      <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+      <result column="ord_goods" jdbcType="VARCHAR" property="ordGoods" />
+      <result column="audit_status" jdbcType="INTEGER" property="auditStatus" />
+      <result column="illegal_remarks" jdbcType="VARCHAR" property="illegalRemarks" />
+      <result column="audit_user" jdbcType="VARCHAR" property="auditUser" />
+      <result column="audit_time" jdbcType="TIMESTAMP" property="auditTime" />
+      <result column="into_user" jdbcType="VARCHAR" property="intoUser" />
+      <result column="into_time" jdbcType="TIMESTAMP" property="intoTime" />
+      <result column="upd_user" jdbcType="VARCHAR" property="updUser" />
+      <result column="upd_time" jdbcType="TIMESTAMP" property="updTime" />
+      <result column="status" jdbcType="INTEGER" property="status" />
+      <result column="version" jdbcType="INTEGER" property="version" />
+      <result column="remark" jdbcType="VARCHAR" property="remark" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+      id, cat_id, shop_id, ord_goods, audit_status, illegal_remarks, audit_user, audit_time,
+      into_user, into_time, upd_user, upd_time, `status`, version, remark
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List" />
+      from s_goods_audit
+      where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+      delete from s_goods_audit
+      where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.shoes.product.model.GoodsAudit" useGeneratedKeys="true">
+      insert into s_goods_audit (cat_id, shop_id, ord_goods,
+        audit_status, illegal_remarks, audit_user,
+        audit_time, into_user, into_time,
+        upd_user, upd_time, `status`,
+        version, remark)
+      values (#{catId,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, #{ordGoods,jdbcType=VARCHAR},
+        #{auditStatus,jdbcType=INTEGER}, #{illegalRemarks,jdbcType=VARCHAR}, #{auditUser,jdbcType=VARCHAR},
+        #{auditTime,jdbcType=TIMESTAMP}, #{intoUser,jdbcType=VARCHAR}, #{intoTime,jdbcType=TIMESTAMP},
+        #{updUser,jdbcType=VARCHAR}, #{updTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER},
+        #{version,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.shoes.product.model.GoodsAudit" useGeneratedKeys="true">
+      insert into s_goods_audit
+      <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="catId != null">
+          cat_id,
+        </if>
+        <if test="shopId != null">
+          shop_id,
+        </if>
+        <if test="ordGoods != null">
+          ord_goods,
+        </if>
+        <if test="auditStatus != null">
+          audit_status,
+        </if>
+        <if test="illegalRemarks != null">
+          illegal_remarks,
+        </if>
+        <if test="auditUser != null">
+          audit_user,
+        </if>
+        <if test="auditTime != null">
+          audit_time,
+        </if>
+        <if test="intoUser != null">
+          into_user,
+        </if>
+        <if test="intoTime != null">
+          into_time,
+        </if>
+        <if test="updUser != null">
+          upd_user,
+        </if>
+        <if test="updTime != null">
+          upd_time,
+        </if>
+        <if test="status != null">
+          `status`,
+        </if>
+        <if test="version != null">
+          version,
+        </if>
+        <if test="remark != null">
+          remark,
+        </if>
+      </trim>
+      <trim prefix="values (" suffix=")" suffixOverrides=",">
+        <if test="catId != null">
+          #{catId,jdbcType=INTEGER},
+        </if>
+        <if test="shopId != null">
+          #{shopId,jdbcType=INTEGER},
+        </if>
+        <if test="ordGoods != null">
+          #{ordGoods,jdbcType=VARCHAR},
+        </if>
+        <if test="auditStatus != null">
+          #{auditStatus,jdbcType=INTEGER},
+        </if>
+        <if test="illegalRemarks != null">
+          #{illegalRemarks,jdbcType=VARCHAR},
+        </if>
+        <if test="auditUser != null">
+          #{auditUser,jdbcType=VARCHAR},
+        </if>
+        <if test="auditTime != null">
+          #{auditTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="intoUser != null">
+          #{intoUser,jdbcType=VARCHAR},
+        </if>
+        <if test="intoTime != null">
+          #{intoTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="updUser != null">
+          #{updUser,jdbcType=VARCHAR},
+        </if>
+        <if test="updTime != null">
+          #{updTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="status != null">
+          #{status,jdbcType=INTEGER},
+        </if>
+        <if test="version != null">
+          #{version,jdbcType=INTEGER},
+        </if>
+        <if test="remark != null">
+          #{remark,jdbcType=VARCHAR},
+        </if>
+      </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.shoes.product.model.GoodsAudit">
+      update s_goods_audit
+      <set>
+        <if test="catId != null">
+          cat_id = #{catId,jdbcType=INTEGER},
+        </if>
+        <if test="shopId != null">
+          shop_id = #{shopId,jdbcType=INTEGER},
+        </if>
+        <if test="ordGoods != null">
+          ord_goods = #{ordGoods,jdbcType=VARCHAR},
+        </if>
+        <if test="auditStatus != null">
+          audit_status = #{auditStatus,jdbcType=INTEGER},
+        </if>
+        <if test="illegalRemarks != null">
+          illegal_remarks = #{illegalRemarks,jdbcType=VARCHAR},
+        </if>
+        <if test="auditUser != null">
+          audit_user = #{auditUser,jdbcType=VARCHAR},
+        </if>
+        <if test="auditTime != null">
+          audit_time = #{auditTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="intoUser != null">
+          into_user = #{intoUser,jdbcType=VARCHAR},
+        </if>
+        <if test="intoTime != null">
+          into_time = #{intoTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="updUser != null">
+          upd_user = #{updUser,jdbcType=VARCHAR},
+        </if>
+        <if test="updTime != null">
+          upd_time = #{updTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="status != null">
+          `status` = #{status,jdbcType=INTEGER},
+        </if>
+        <if test="version != null">
+          version = #{version,jdbcType=INTEGER},
+        </if>
+        <if test="remark != null">
+          remark = #{remark,jdbcType=VARCHAR},
+        </if>
+      </set>
+      where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.shoes.product.model.GoodsAudit">
+      update s_goods_audit
+      set cat_id = #{catId,jdbcType=INTEGER},
+        shop_id = #{shopId,jdbcType=INTEGER},
+        ord_goods = #{ordGoods,jdbcType=VARCHAR},
+        audit_status = #{auditStatus,jdbcType=INTEGER},
+        illegal_remarks = #{illegalRemarks,jdbcType=VARCHAR},
+        audit_user = #{auditUser,jdbcType=VARCHAR},
+        audit_time = #{auditTime,jdbcType=TIMESTAMP},
+        into_user = #{intoUser,jdbcType=VARCHAR},
+        into_time = #{intoTime,jdbcType=TIMESTAMP},
+        upd_user = #{updUser,jdbcType=VARCHAR},
+        upd_time = #{updTime,jdbcType=TIMESTAMP},
+        `status` = #{status,jdbcType=INTEGER},
+        version = #{version,jdbcType=INTEGER},
+        remark = #{remark,jdbcType=VARCHAR}
+      where id = #{id,jdbcType=INTEGER}
+    </update>
+
+</mapper>
