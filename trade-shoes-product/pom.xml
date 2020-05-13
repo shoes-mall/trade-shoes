@@ -17,6 +17,10 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <lombok.version>1.16.20</lombok.version>
+        <rabbit.version>2.0.1.RELEASE</rabbit.version>
+        <flyway.version>5.2.4</flyway.version>
+        <commons.version>1.0.0.SNAPSHOT</commons.version>
     </properties>
 
     <dependencies>
@@ -58,8 +62,33 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-            <version>5.2.4</version>
+            <version>${flyway.version}</version>
         </dependency>
+
+        <!-- amqp -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.amqp</groupId>-->
+<!--            <artifactId>spring-rabbit</artifactId>-->
+<!--        </dependency>-->
+
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.shoes</groupId>
+            <artifactId>trade-shoes-commons</artifactId>
+            <version>${commons.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
